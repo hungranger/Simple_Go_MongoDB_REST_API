@@ -1,0 +1,56 @@
+<html>
+  <head>
+		<title>Trusting Social PreScreen</title>
+		<link rel="stylesheet"  type="text/css"  href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="/static/app.js"></script>
+		
+		<script language="JavaScript">
+			window.onbeforeunload = WindowCloseHanlder;
+			function WindowCloseHanlder()
+			{	
+			window.alert('My Window is closing');
+			}
+		</script>
+  </head>
+  
+  <body>   
+    
+    <!------- HTML ------->
+    <div class="container">      
+      <div class="grid header">TRUSTINGSOCIAL PreScreen</div>
+      <div class="grid sidebar">
+        <div>20 Latest</div>
+        <button id="btn20latest">SHOW</button>
+        <ul id="20latest"></ul>
+      </div>
+      <div class="grid content">
+        <div>Sum of 10 Oldest </div>
+        <button id="btnSum10Oldest">SHOW</button>
+        <ul id="sum10Oldest"></ul>
+      </div>
+      <div class="grid extra">
+        <div>Median</div>
+        <button id="btnMedian">SHOW</button>
+        <ul id="median"></ul>
+      </div>
+      <div class="grid footer">
+        <div>List of pair: <span id="listPairLength"></span> pairs</div>
+        <p id="totalElement"></p>
+      </div>
+    </div>
+		
+		<script>
+      $('#btn20latest').click(function(){
+        updateLatest20Every5Second();    
+				$('#btn20latest').hide();
+      });
+      $('#btnSum10Oldest').click(function(){
+        get10OldestSum();      
+      });
+      $('#btnMedian').click(function(){
+        getMedian();       
+      });
+    </script>
+	</body>
+</html>    

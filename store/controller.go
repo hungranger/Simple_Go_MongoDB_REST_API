@@ -40,6 +40,7 @@ func (c *Controller) Get20Latest(w http.ResponseWriter, r *http.Request) {
 		data = append(data, LatestData{pair.Value})
 	}
 	jsonData, _ := json.Marshal(data)
+
 	c.writeResponse(w, pairs, jsonData)
 	return
 }
@@ -112,6 +113,6 @@ func (c *Controller) writeResponse(w http.ResponseWriter, pairs []Pair, data []b
 	w.Write(data)
 
 	if pairs != nil {
-		c.Repository.updateStatus(pairs, false)
+		go c.Repository.updateStatus(pairs, false)
 	}
 }

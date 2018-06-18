@@ -171,7 +171,7 @@ func (r *MongoDBRepository) get20Latest() []Pair {
 		return nil
 	}
 
-	r.updateStatus(pairs, true)
+	go r.updateStatus(pairs, true)
 
 	return pairs
 }
@@ -198,6 +198,6 @@ func (r *MongoDBRepository) get10Oldest(pageNo int) []Pair {
 		return nil
 	}
 
-	r.updateStatus(pairs, true)
+	go r.updateStatus(pairs, true)
 	return pairs
 }
